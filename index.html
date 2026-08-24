@@ -7,131 +7,414 @@
   <title>RGO | Richard Gaignon</title>
 
   <style>
+    :root {
+      --bg: #f4f1eb;
+      --paper: #ffffff;
+      --ink: #242321;
+      --muted: #6c675f;
+      --accent: #b45c38;
+      --dark: #252524;
+      --line: #dfdbd3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: #292725;
-      background: #f7f5f0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
     }
 
     header {
-      padding: 24px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 20;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: white;
+      padding: 20px 7%;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
     }
 
     .logo {
-      font-size: 32px;
-      font-weight: bold;
+      font-size: 38px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 0.9;
     }
 
     .logo span {
       display: block;
+      margin-top: 10px;
       font-size: 11px;
-      font-weight: normal;
-      letter-spacing: 2px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      font-size: 13px;
+      text-transform: uppercase;
     }
 
     nav a {
-      margin-left: 28px;
       text-decoration: none;
-      color: #292725;
-      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--accent);
     }
 
     .hero {
-      padding: 110px 8%;
-      max-width: 1000px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      min-height: 650px;
+      background: var(--paper);
+    }
+
+    .hero-copy {
+      padding: 90px 7% 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-image {
+      min-height: 100%;
+      background:
+        linear-gradient(to right, rgba(255,255,255,0.15), rgba(255,255,255,0)),
+        url("ceramiques-blanches.png") center center / cover no-repeat;
     }
 
     .eyebrow {
-      color: #a65332;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      color: var(--accent);
       font-size: 13px;
-      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
     }
 
     h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(42px, 6vw, 76px);
-      line-height: 1.05;
-      font-weight: normal;
-      max-width: 900px;
-      margin: 20px 0 30px;
+      font-size: clamp(46px, 5vw, 76px);
+      line-height: 1.02;
+      margin: 0 0 28px;
+      max-width: 780px;
     }
 
-    .hero p {
+    h2 {
+      font-size: clamp(34px, 3.2vw, 52px);
+      line-height: 1.1;
+      margin: 0 0 25px;
+    }
+
+    h3 {
+      font-size: 26px;
+      line-height: 1.15;
+      margin: 0 0 16px;
+    }
+
+    .lead {
+      font-size: 19px;
+      color: var(--muted);
       max-width: 720px;
-      font-size: 20px;
-      line-height: 1.6;
-      color: #57524d;
+      margin: 0 0 24px;
+    }
+
+    .signature {
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    .signature strong {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .button {
       display: inline-block;
-      margin-top: 25px;
+      width: fit-content;
+      margin-top: 26px;
       padding: 15px 24px;
-      background: #a65332;
+      background: var(--accent);
       color: white;
       text-decoration: none;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
-    .section {
-      padding: 80px 8%;
-      background: white;
+    .button:hover {
+      opacity: 0.9;
     }
 
-    .section.dark {
-      background: #292725;
-      color: white;
+    section {
+      padding: 85px 7%;
     }
 
-    h2 {
-      font-family: Georgia, serif;
-      font-size: 40px;
-      font-weight: normal;
-      margin-bottom: 25px;
-    }
-
-    .cards {
+    .experience {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-      margin-top: 40px;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 70px;
+      background: #f7f4ef;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
-    .card {
+    .experience-quote {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      line-height: 1.15;
+    }
+
+    .experience-text {
+      font-size: 17px;
+      color: var(--muted);
+    }
+
+    .experience-text strong {
+      color: var(--ink);
+    }
+
+    .audiences {
+      background: var(--paper);
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 48px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .audience-card {
+      border: 1px solid var(--line);
+      background: #fbfaf7;
+      overflow: hidden;
+    }
+
+    .audience-card .visual {
+      height: 180px;
+      background: linear-gradient(135deg, #ddd7cf, #f5f2ec);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+      color: #77716a;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .audience-card .content {
+      padding: 28px;
+    }
+
+    .audience-card p {
+      color: var(--muted);
+    }
+
+    .services {
+      background: #f7f4ef;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 42px;
+    }
+
+    .service {
+      padding: 26px 22px;
+      border-top: 3px solid var(--accent);
+      background: var(--paper);
+    }
+
+    .service-number {
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 55px;
+      align-items: stretch;
+      background: var(--paper);
+    }
+
+    .portrait-wrap {
+      min-height: 520px;
+      overflow: hidden;
+      background: #dedbd5;
+    }
+
+    .portrait-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 38% 35%;
+      filter: saturate(0.9) contrast(1.02);
+    }
+
+    .about-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .trail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      background: #efeae2;
+    }
+
+    .trail p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .trail-note {
       padding: 35px;
-      background: #f1eee8;
+      border-left: 3px solid var(--accent);
+      background: rgba(255,255,255,0.55);
     }
 
-    .card h3 {
-      font-family: Georgia, serif;
-      font-size: 25px;
+    .contact {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+    }
+
+    .contact p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #d3cec6;
+      font-size: 18px;
     }
 
     footer {
-      padding: 35px 8%;
-      background: #1f1e1c;
-      color: #aaa;
+      padding: 28px 7%;
+      background: #1d1d1c;
+      color: #aaa59f;
       font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 1000px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 420px;
+      }
+
+      .experience,
+      .about,
+      .trail {
+        grid-template-columns: 1fr;
+      }
+
+      .audience-grid,
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .portrait-wrap {
+        min-height: 420px;
+      }
     }
 
     @media (max-width: 700px) {
+      header {
+        padding: 16px 6%;
+      }
+
       nav {
         display: none;
       }
 
-      .cards {
+      .logo {
+        font-size: 30px;
+      }
+
+      section {
+        padding: 65px 6%;
+      }
+
+      .hero-copy {
+        padding: 70px 6%;
+      }
+
+      .hero-image {
+        min-height: 310px;
+      }
+
+      .experience {
+        gap: 25px;
+      }
+
+      .experience-quote {
+        font-size: 28px;
+      }
+
+      .audience-grid,
+      .services-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        padding-top: 70px;
-        padding-bottom: 70px;
+      .portrait-wrap {
+        min-height: 380px;
       }
     }
   </style>
@@ -148,6 +431,7 @@
   <nav>
     <a href="#entrepreneurs">Entrepreneurs</a>
     <a href="#investisseurs">Investisseurs</a>
+    <a href="#ecosysteme">Écosystème</a>
     <a href="#richard">Richard Gaignon</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -155,144 +439,260 @@
 
 <main>
 
-<section class="hero">
+  <section class="hero">
+    <div class="hero-copy">
 
-  <div class="eyebrow">
-    Conseil stratégique · Industrie céramique
-  </div>
+      <div class="eyebrow">
+        Conseil stratégique · Industrie céramique
+      </div>
 
-  <h1>
-    Une technologie céramique ne suffit pas à construire une entreprise.
-  </h1>
+      <h1>
+        Une technologie céramique ne suffit pas à construire une entreprise.
+      </h1>
 
-  <p>
-    RGO accompagne les entrepreneurs de la céramique lorsqu'il faut
-    trouver son marché, vendre, se développer à l'international,
-    préparer les échanges avec des investisseurs ou traverser
-    une étape difficile.
-  </p>
+      <p class="lead">
+        RGO accompagne les entrepreneurs de la céramique lorsqu'il faut
+        trouver son marché, vendre, se développer à l'international,
+        préparer les échanges avec des investisseurs ou traverser
+        une étape difficile.
+      </p>
 
-  <a class="button" href="#contact">
-    Échanger sur votre projet
-  </a>
+      <div class="signature">
+        <strong>Richard Gaignon</strong><br>
+        Entrepreneur et dirigeant de l'industrie céramique,
+        avec plus de 30 ans d'expérience de ses marchés,
+        de ses technologies et de son développement international.
+      </div>
 
-</section>
+      <a class="button" href="#contact">
+        Échanger sur votre projet
+      </a>
+    </div>
 
-<section class="section dark">
+    <div class="hero-image"></div>
+  </section>
 
-  <h2>
-    Des conseils issus de l'expérience.
-  </h2>
+  <section class="experience">
 
-  <p>
-    Créer, reprendre, développer et internationaliser une entreprise
-    industrielle. Changer de modèle économique. Accueillir un nouvel
-    actionnaire. Traverser les périodes de croissance comme les
-    périodes difficiles.
-  </p>
+    <div class="experience-quote">
+      Des conseils issus de l'expérience,
+      y compris de ce qui n'a pas fonctionné.
+    </div>
 
-  <p>
-    RGO s'appuie sur une expérience vécue de dirigeant,
-    pas uniquement sur des méthodes de conseil.
-  </p>
-
-</section>
-
-<section class="section">
-
-  <div class="eyebrow">
-    RGO
-  </div>
-
-  <h2>
-    Là où RGO peut être utile
-  </h2>
-
-  <div class="cards">
-
-    <div class="card" id="entrepreneurs">
-      <h3>Challenger le dirigeant</h3>
+    <div class="experience-text">
       <p>
-        Un regard extérieur expérimenté pour challenger une stratégie,
-        un business model ou une décision importante, sans décider
-        à la place du dirigeant.
+        Créer, reprendre, développer et internationaliser une entreprise industrielle.
+        Changer de modèle économique. Accueillir un nouvel actionnaire.
+        Traverser les périodes de croissance comme les périodes difficiles.
+      </p>
+
+      <p>
+        <strong>
+          RGO s'appuie sur une expérience vécue de dirigeant,
+          pas uniquement sur des méthodes de conseil.
+        </strong>
       </p>
     </div>
 
-    <div class="card">
-      <h3>Trouver ses marchés et vendre à l'international</h3>
+  </section>
+
+  <section class="audiences">
+
+    <div class="section-title">
+      <div class="eyebrow">Trois portes d'entrée</div>
+      <h2>Selon votre situation</h2>
+    </div>
+
+    <div class="audience-grid">
+
+      <article class="audience-card" id="entrepreneurs">
+        <div class="visual">
+          Entrepreneurs & dirigeants
+        </div>
+        <div class="content">
+          <h3>Vous êtes entrepreneur ou dirigeant</h3>
+          <p>
+            Votre technologie fonctionne. Il faut maintenant en faire une entreprise
+            qui fonctionne.
+          </p>
+          <p>
+            RGO vous accompagne pour challenger votre stratégie, trouver vos marchés,
+            développer vos ventes, aborder l'international et préparer les étapes
+            importantes avec vos investisseurs.
+          </p>
+        </div>
+      </article>
+
+      <article class="audience-card" id="investisseurs">
+        <div class="visual">
+          Investisseurs
+        </div>
+        <div class="content">
+          <h3>Vous êtes investisseur</h3>
+          <p>
+            Vous devez comprendre ce qui se trouve derrière la technologie.
+          </p>
+          <p>
+            RGO apporte une lecture industrielle et entrepreneuriale :
+            technologie, marché, business model, stratégie commerciale
+            et capacité de l'équipe à exécuter son projet.
+          </p>
+        </div>
+      </article>
+
+      <article class="audience-card" id="ecosysteme">
+        <div class="visual">
+          Clusters · Fédérations · Formation
+        </div>
+        <div class="content">
+          <h3>Vous représentez un acteur de l'écosystème</h3>
+          <p>
+            Conférences, formations et interventions destinées aux entrepreneurs
+            et dirigeants, construites à partir de situations réellement vécues
+            dans l'industrie et l'entrepreneuriat.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+  </section>
+
+  <section class="services">
+
+    <div class="section-title">
+      <div class="eyebrow">RGO</div>
+      <h2>Là où RGO peut être utile</h2>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service">
+        <div class="service-number">01</div>
+        <h3>Challenger le dirigeant</h3>
+        <p>
+          Un regard extérieur expérimenté pour challenger une décision,
+          une stratégie ou un business model, sans décider à la place du dirigeant.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-number">02</div>
+        <h3>Trouver ses marchés et vendre à l'international</h3>
+        <p>
+          Passer d'une technologie intéressante à une proposition
+          que des clients industriels sont réellement prêts à acheter.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-number">03</div>
+        <h3>Se préparer aux investisseurs</h3>
+        <p>
+          Challenger le business plan, les hypothèses commerciales
+          et la stratégie avant d'entrer dans les discussions financières.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-number">04</div>
+        <h3>Apporter un regard sectoriel à l'investisseur</h3>
+        <p>
+          Analyser une entreprise céramique au-delà de son pitch :
+          technologie, marché, potentiel commercial, équipe et capacité d'exécution.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="about" id="richard">
+
+    <div class="portrait-wrap">
+      <img src="DSC_0022.JPG" alt="Richard Gaignon">
+    </div>
+
+    <div class="about-copy">
+
+      <div class="eyebrow">
+        Richard Gaignon
+      </div>
+
+      <h2>
+        Plus de 30 ans dans l'industrie céramique.
+      </h2>
+
       <p>
-        Passer d'une technologie intéressante à une proposition
-        que des clients industriels sont réellement prêts à acheter.
+        Ingénieur de formation, j'ai d'abord évolué pendant près de vingt ans
+        dans l'ingénierie céramique et les projets industriels internationaux,
+        avant de reprendre avec Christophe Chaput CeramPilot en 2009,
+        devenue 3DCeram.
+      </p>
+
+      <p>
+        Mon parcours m'a conduit de la céramique traditionnelle
+        aux céramiques techniques et à la fabrication additive,
+        mais aussi de l'ingénierie à la vente,
+        de la vente à l'entrepreneuriat
+        et de l'entrepreneuriat à la direction d'entreprise.
+      </p>
+
+      <p>
+        <strong>
+          RGO est né de l'envie de transmettre cette expérience
+          à d'autres entrepreneurs — réussites, erreurs et périodes difficiles comprises.
+        </strong>
+      </p>
+
+    </div>
+
+  </section>
+
+  <section class="trail">
+
+    <div>
+      <div class="eyebrow">Une question de durée</div>
+      <h2>
+        Les projets difficiles ne se jouent pas toujours au départ.
+      </h2>
+    </div>
+
+    <div class="trail-note">
+      <p>
+        Ancien ultra-traileur, j'ai notamment parcouru le GR20 en six jours
+        et participé à des épreuves allant jusqu'à 220 km.
+      </p>
+
+      <p>
+        Une expérience assez proche, sur certains points, de l'entrepreneuriat :
+        savoir pourquoi on avance, accepter que tout ne se déroule pas comme prévu
+        et continuer lorsque le projet devient long.
       </p>
     </div>
 
-    <div class="card">
-      <h3>Se préparer aux investisseurs</h3>
-      <p>
-        Challenger le business plan, les hypothèses commerciales
-        et la stratégie avant d'entrer dans les discussions financières.
-      </p>
+  </section>
+
+  <section class="contact" id="contact">
+
+    <div class="eyebrow">
+      Parlons-en
     </div>
 
-    <div class="card" id="investisseurs">
-      <h3>Apporter un regard sectoriel à l'investisseur</h3>
-      <p>
-        Analyser une entreprise céramique au-delà de son pitch :
-        technologie, marché, potentiel commercial, équipe
-        et capacité d'exécution.
-      </p>
-    </div>
+    <h2>
+      Votre projet mérite peut-être un regard extérieur expérimenté.
+    </h2>
 
-  </div>
+    <p>
+      Un premier échange permet de déterminer simplement
+      si mon expérience peut être utile à votre situation.
+    </p>
 
-</section>
+    <a class="button" href="mailto:contact@gaignon.com">
+      Échanger sur votre projet
+    </a>
 
-<section class="section" id="richard">
-
-  <div class="eyebrow">
-    Richard Gaignon
-  </div>
-
-  <h2>
-    Plus de 30 ans dans l'industrie céramique.
-  </h2>
-
-  <p>
-    De l'ingénierie céramique et des projets industriels internationaux
-    à l'entrepreneuriat, aux céramiques techniques et à la fabrication
-    additive, mon parcours m'a placé des deux côtés de nombreuses
-    décisions auxquelles sont confrontés les dirigeants.
-  </p>
-
-  <p>
-    RGO est né de l'envie de transmettre cette expérience
-    à d'autres entrepreneurs — réussites, erreurs et périodes
-    difficiles comprises.
-  </p>
-
-</section>
-
-<section class="section dark" id="contact">
-
-  <div class="eyebrow">
-    Parlons-en
-  </div>
-
-  <h2>
-    Un projet, une décision difficile ou simplement besoin d'un regard extérieur ?
-  </h2>
-
-  <p>
-    Un premier échange permet de déterminer simplement
-    si mon expérience peut être utile à votre situation.
-  </p>
-
-  <a class="button" href="mailto:contact@gaignon.com">
-    Échanger sur votre projet
-  </a>
-
-</section>
+  </section>
 
 </main>
 
