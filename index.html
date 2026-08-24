@@ -18,8 +18,13 @@
       --line: #dfdbd3;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -34,7 +39,9 @@
       display: block;
     }
 
-    a { color: inherit; }
+    a {
+      color: inherit;
+    }
 
     header {
       position: sticky;
@@ -80,6 +87,12 @@
       color: var(--accent);
     }
 
+    .lang-switch {
+      padding-left: 8px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
     .hero {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -97,7 +110,11 @@
     .hero-image {
       min-height: 100%;
       background:
-        linear-gradient(to right, rgba(255,255,255,0.15), rgba(255,255,255,0)),
+        linear-gradient(
+          to right,
+          rgba(255,255,255,0.15),
+          rgba(255,255,255,0)
+        ),
         url("ceramiques-blanches.png") center center / cover no-repeat;
     }
 
@@ -110,7 +127,9 @@
       margin-bottom: 18px;
     }
 
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
       font-family: Georgia, "Times New Roman", serif;
       font-weight: 400;
     }
@@ -165,7 +184,9 @@
       letter-spacing: 0.04em;
     }
 
-    .button:hover { opacity: 0.9; }
+    .button:hover {
+      opacity: 0.9;
+    }
 
     section {
       padding: 85px 7%;
@@ -379,7 +400,18 @@
         padding: 16px 6%;
       }
 
-      nav { display: none; }
+      nav {
+        gap: 12px;
+      }
+
+      nav a:not(.lang-switch) {
+        display: none;
+      }
+
+      .lang-switch {
+        display: block;
+        font-size: 14px;
+      }
 
       .logo {
         font-size: 30px;
@@ -420,6 +452,7 @@
 <body>
 
 <header>
+
   <div class="logo">
     RGO
     <span>RICHARD GAIGNON</span>
@@ -431,13 +464,21 @@
     <a href="#ecosysteme">Écosystème</a>
     <a href="#richard">Richard Gaignon</a>
     <a href="#contact">Contact</a>
+
+    <!-- VERSION ANGLAISE -->
+    <a class="lang-switch" href="en.html">EN</a>
   </nav>
+
 </header>
 
 <main>
 
-  <!-- ACCUEIL -->
+  <!-- =========================
+       ACCUEIL
+       ========================= -->
+
   <section class="hero">
+
     <div class="hero-copy">
 
       <div class="eyebrow">
@@ -468,10 +509,14 @@
     </div>
 
     <div class="hero-image"></div>
+
   </section>
 
 
-  <!-- DIFFERENCIATION -->
+  <!-- =========================
+       EXPÉRIENCE
+       ========================= -->
+
   <section class="experience">
 
     <div class="experience-quote">
@@ -480,6 +525,7 @@
     </div>
 
     <div class="experience-text">
+
       <p>
         Créer, reprendre, développer et internationaliser une entreprise industrielle.
         Changer de modèle économique. Accueillir un nouvel actionnaire.
@@ -492,30 +538,47 @@
           pas uniquement sur des méthodes de conseil.
         </strong>
       </p>
+
     </div>
 
   </section>
 
 
-  <!-- CLIENTS -->
+  <!-- =========================
+       CLIENTS
+       ========================= -->
+
   <section class="audiences">
 
     <div class="section-title">
-      <div class="eyebrow">Trois portes d'entrée</div>
-      <h2>Selon votre situation</h2>
+
+      <div class="eyebrow">
+        Trois portes d'entrée
+      </div>
+
+      <h2>
+        Selon votre situation
+      </h2>
+
     </div>
 
     <div class="audience-grid">
 
       <article class="audience-card" id="entrepreneurs">
-        <div class="visual">Entrepreneurs & dirigeants</div>
+
+        <div class="visual">
+          Entrepreneurs & dirigeants
+        </div>
 
         <div class="content">
-          <h3>Vous êtes entrepreneur ou dirigeant</h3>
+
+          <h3>
+            Vous êtes entrepreneur ou dirigeant
+          </h3>
 
           <p>
-            Votre technologie fonctionne. Il faut maintenant en faire
-            une entreprise qui fonctionne.
+            Votre technologie fonctionne.
+            Il faut maintenant en faire une entreprise qui fonctionne.
           </p>
 
           <p>
@@ -524,15 +587,23 @@
             aborder l'international et préparer les étapes importantes
             avec vos investisseurs.
           </p>
+
         </div>
+
       </article>
 
 
       <article class="audience-card" id="investisseurs">
-        <div class="visual">Investisseurs</div>
+
+        <div class="visual">
+          Investisseurs
+        </div>
 
         <div class="content">
-          <h3>Vous êtes investisseur</h3>
+
+          <h3>
+            Vous êtes investisseur
+          </h3>
 
           <p>
             Vous devez comprendre ce qui se trouve derrière la technologie.
@@ -543,15 +614,23 @@
             technologie, marché, business model, stratégie commerciale
             et capacité de l'équipe à exécuter son projet.
           </p>
+
         </div>
+
       </article>
 
 
       <article class="audience-card" id="ecosysteme">
-        <div class="visual">Clusters · Fédérations · Formation</div>
+
+        <div class="visual">
+          Clusters · Fédérations · Formation
+        </div>
 
         <div class="content">
-          <h3>Vous représentez un acteur de l'écosystème</h3>
+
+          <h3>
+            Vous représentez un acteur de l'écosystème
+          </h3>
 
           <p>
             Conférences, formations et interventions destinées
@@ -559,76 +638,127 @@
             de situations réellement vécues dans l'industrie
             et l'entrepreneuriat.
           </p>
+
         </div>
+
       </article>
 
     </div>
+
   </section>
 
 
-  <!-- OFFRES -->
+  <!-- =========================
+       OFFRES
+       ========================= -->
+
   <section class="services">
 
     <div class="section-title">
-      <div class="eyebrow">RGO</div>
-      <h2>Là où RGO peut être utile</h2>
+
+      <div class="eyebrow">
+        RGO
+      </div>
+
+      <h2>
+        Là où RGO peut être utile
+      </h2>
+
     </div>
 
     <div class="services-grid">
 
       <div class="service">
-        <div class="service-number">01</div>
-        <h3>Challenger le dirigeant</h3>
+
+        <div class="service-number">
+          01
+        </div>
+
+        <h3>
+          Challenger le dirigeant
+        </h3>
 
         <p>
           Un regard extérieur expérimenté pour challenger une décision,
-          une stratégie ou un business model, sans décider à la place du dirigeant.
+          une stratégie ou un business model,
+          sans décider à la place du dirigeant.
         </p>
+
       </div>
 
 
       <div class="service">
-        <div class="service-number">02</div>
-        <h3>Développer ses marchés, en France et à l'international</h3>
+
+        <div class="service-number">
+          02
+        </div>
+
+        <h3>
+          Développer ses marchés, en France et à l'international
+        </h3>
 
         <p>
           Passer d'une technologie intéressante à une proposition
           que des clients industriels sont réellement prêts à acheter.
         </p>
+
       </div>
 
 
       <div class="service">
-        <div class="service-number">03</div>
-        <h3>Se préparer aux investisseurs</h3>
+
+        <div class="service-number">
+          03
+        </div>
+
+        <h3>
+          Se préparer aux investisseurs
+        </h3>
 
         <p>
           Challenger le business plan, les hypothèses commerciales
           et la stratégie avant d'entrer dans les discussions financières.
         </p>
+
       </div>
 
 
       <div class="service">
-        <div class="service-number">04</div>
-        <h3>Éclairer la décision de l'investisseur</h3>
+
+        <div class="service-number">
+          04
+        </div>
+
+        <h3>
+          Éclairer la décision de l'investisseur
+        </h3>
 
         <p>
           Analyser une entreprise céramique au-delà de son pitch :
           technologie, marché, potentiel commercial,
           équipe et capacité d'exécution.
         </p>
+
       </div>
 
     </div>
+
   </section>
 
 
-  <!-- PARCOURS -->
+  <!-- =========================
+       RICHARD GAIGNON
+       ========================= -->
+
   <section class="about" id="richard">
 
     <div class="portrait-wrap">
-      <img src="richard-gaignon.jpg" alt="Richard Gaignon">
+
+      <img
+        src="richard-gaignon.jpg"
+        alt="Richard Gaignon"
+      >
+
     </div>
 
     <div class="about-copy">
@@ -666,18 +796,26 @@
       </p>
 
     </div>
+
   </section>
 
 
-  <!-- ULTRA TRAIL -->
+  <!-- =========================
+       ULTRA-TRAIL
+       ========================= -->
+
   <section class="trail">
 
     <div>
-      <div class="eyebrow">Une question de durée</div>
+
+      <div class="eyebrow">
+        Une question de durée
+      </div>
 
       <h2>
         Les projets difficiles ne se jouent pas toujours au départ.
       </h2>
+
     </div>
 
     <div class="trail-note">
@@ -692,10 +830,14 @@
       </p>
 
     </div>
+
   </section>
 
 
-  <!-- CONTACT -->
+  <!-- =========================
+       CONTACT
+       ========================= -->
+
   <section class="contact" id="contact">
 
     <div class="eyebrow">
@@ -711,11 +853,17 @@
       si mon expérience peut être utile à votre situation.
     </p>
 
-    <a class="button" href="mailto:rgo@gaignon.com">
+    <a
+      class="button"
+      href="mailto:rgo@gaignon.com"
+    >
       Échanger sur votre projet
     </a>
 
-    <a class="email" href="mailto:rgo@gaignon.com">
+    <a
+      class="email"
+      href="mailto:rgo@gaignon.com"
+    >
       rgo@gaignon.com
     </a>
 
