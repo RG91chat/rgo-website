@@ -94,25 +94,23 @@
     }
 
     .hero {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      min-height: 650px;
       background: var(--paper);
     }
 
     .hero-copy {
-      padding: 90px 7% 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      padding: 95px 7% 70px;
+      max-width: 1500px;
+      margin: 0 auto;
     }
 
     .hero-image {
-      min-height: 100%;
+      width: 100%;
+      height: min(58vw, 650px);
+      min-height: 390px;
       background:
         linear-gradient(
-          to right,
-          rgba(255,255,255,0.15),
+          to bottom,
+          rgba(255,255,255,0.04),
           rgba(255,255,255,0)
         ),
         url("ceramiques-blanches.png") center center / cover no-repeat;
@@ -135,10 +133,10 @@
     }
 
     h1 {
-      font-size: clamp(46px, 5vw, 76px);
+      font-size: clamp(52px, 6vw, 92px);
       line-height: 1.02;
-      margin: 0 0 28px;
-      max-width: 780px;
+      margin: 0 0 30px;
+      max-width: 1400px;
     }
 
     h2 {
@@ -153,16 +151,24 @@
       margin: 0 0 16px;
     }
 
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items: end;
+      margin-top: 30px;
+    }
+
     .lead {
-      font-size: 19px;
+      font-size: 20px;
       color: var(--muted);
-      max-width: 720px;
-      margin: 0 0 24px;
+      max-width: 820px;
+      margin: 0;
     }
 
     .signature {
-      margin-top: 18px;
       font-size: 14px;
+      max-width: 480px;
     }
 
     .signature strong {
@@ -224,11 +230,6 @@
       text-align: center;
       max-width: 900px;
       margin: 0 auto 48px;
-    }
-
-    .section-title p {
-      color: var(--muted);
-      font-size: 17px;
     }
 
     .audience-grid {
@@ -371,18 +372,15 @@
     }
 
     @media (max-width: 1000px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-image {
-        min-height: 420px;
-      }
-
+      .hero-bottom,
       .experience,
       .about,
       .trail {
         grid-template-columns: 1fr;
+      }
+
+      .hero-bottom {
+        gap: 30px;
       }
 
       .audience-grid,
@@ -392,6 +390,10 @@
 
       .portrait-wrap {
         min-height: 420px;
+      }
+
+      .hero-image {
+        min-height: 360px;
       }
     }
 
@@ -422,11 +424,16 @@
       }
 
       .hero-copy {
-        padding: 70px 6%;
+        padding: 70px 6% 50px;
+      }
+
+      h1 {
+        font-size: clamp(46px, 13vw, 66px);
       }
 
       .hero-image {
-        min-height: 310px;
+        height: 62vw;
+        min-height: 280px;
       }
 
       .experience {
@@ -464,8 +471,6 @@
     <a href="#ecosysteme">Écosystème</a>
     <a href="#richard">Richard Gaignon</a>
     <a href="#contact">Contact</a>
-
-    <!-- VERSION ANGLAISE -->
     <a class="lang-switch" href="en.html">EN</a>
   </nav>
 
@@ -473,11 +478,7 @@
 
 <main>
 
-  <!-- =========================
-       ACCUEIL
-       ========================= -->
-
-  <section class="hero">
+  <div class="hero">
 
     <div class="hero-copy">
 
@@ -489,33 +490,35 @@
         Une technologie céramique ne suffit pas à construire une entreprise.
       </h1>
 
-      <p class="lead">
-        RGO accompagne les entrepreneurs de la céramique pour transformer
-        une technologie en marché : stratégie commerciale, développement
-        international, investisseurs et décisions clés du dirigeant.
-      </p>
+      <div class="hero-bottom">
 
-      <div class="signature">
-        <strong>Richard Gaignon</strong><br>
-        Entrepreneur et dirigeant de l'industrie céramique,
-        avec plus de 30 ans d'expérience de ses marchés,
-        de ses technologies et de son développement international.
+        <div>
+          <p class="lead">
+            RGO accompagne les entrepreneurs de la céramique pour transformer
+            une technologie en marché : stratégie commerciale, développement
+            international, investisseurs et décisions clés du dirigeant.
+          </p>
+
+          <a class="button" href="#contact">
+            Échanger sur votre projet
+          </a>
+        </div>
+
+        <div class="signature">
+          <strong>Richard Gaignon</strong><br>
+          Entrepreneur et dirigeant de l'industrie céramique,
+          avec plus de 30 ans d'expérience de ses marchés,
+          de ses technologies et de son développement international.
+        </div>
+
       </div>
-
-      <a class="button" href="#contact">
-        Échanger sur votre projet
-      </a>
 
     </div>
 
     <div class="hero-image"></div>
 
-  </section>
+  </div>
 
-
-  <!-- =========================
-       EXPÉRIENCE
-       ========================= -->
 
   <section class="experience">
 
@@ -525,7 +528,6 @@
     </div>
 
     <div class="experience-text">
-
       <p>
         Créer, reprendre, développer et internationaliser une entreprise industrielle.
         Changer de modèle économique. Accueillir un nouvel actionnaire.
@@ -538,15 +540,10 @@
           pas uniquement sur des méthodes de conseil.
         </strong>
       </p>
-
     </div>
 
   </section>
 
-
-  <!-- =========================
-       CLIENTS
-       ========================= -->
 
   <section class="audiences">
 
@@ -648,10 +645,6 @@
   </section>
 
 
-  <!-- =========================
-       OFFRES
-       ========================= -->
-
   <section class="services">
 
     <div class="section-title">
@@ -670,9 +663,7 @@
 
       <div class="service">
 
-        <div class="service-number">
-          01
-        </div>
+        <div class="service-number">01</div>
 
         <h3>
           Challenger le dirigeant
@@ -689,9 +680,7 @@
 
       <div class="service">
 
-        <div class="service-number">
-          02
-        </div>
+        <div class="service-number">02</div>
 
         <h3>
           Développer ses marchés, en France et à l'international
@@ -707,9 +696,7 @@
 
       <div class="service">
 
-        <div class="service-number">
-          03
-        </div>
+        <div class="service-number">03</div>
 
         <h3>
           Se préparer aux investisseurs
@@ -725,9 +712,7 @@
 
       <div class="service">
 
-        <div class="service-number">
-          04
-        </div>
+        <div class="service-number">04</div>
 
         <h3>
           Éclairer la décision de l'investisseur
@@ -746,19 +731,10 @@
   </section>
 
 
-  <!-- =========================
-       RICHARD GAIGNON
-       ========================= -->
-
   <section class="about" id="richard">
 
     <div class="portrait-wrap">
-
-      <img
-        src="richard-gaignon.jpg"
-        alt="Richard Gaignon"
-      >
-
+      <img src="richard-gaignon.jpg" alt="Richard Gaignon">
     </div>
 
     <div class="about-copy">
@@ -800,10 +776,6 @@
   </section>
 
 
-  <!-- =========================
-       ULTRA-TRAIL
-       ========================= -->
-
   <section class="trail">
 
     <div>
@@ -834,10 +806,6 @@
   </section>
 
 
-  <!-- =========================
-       CONTACT
-       ========================= -->
-
   <section class="contact" id="contact">
 
     <div class="eyebrow">
@@ -853,17 +821,11 @@
       si mon expérience peut être utile à votre situation.
     </p>
 
-    <a
-      class="button"
-      href="mailto:rgo@gaignon.com"
-    >
+    <a class="button" href="mailto:rgo@gaignon.com">
       Échanger sur votre projet
     </a>
 
-    <a
-      class="email"
-      href="mailto:rgo@gaignon.com"
-    >
+    <a class="email" href="mailto:rgo@gaignon.com">
       rgo@gaignon.com
     </a>
 
