@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>RGO | Richard Gaignon</title>
+  <meta name="description" content="RGO accompagne les entrepreneurs de la céramique : stratégie commerciale, développement international, investisseurs et décisions clés du dirigeant.">
 
   <style>
     :root {
@@ -17,13 +18,8 @@
       --line: #dfdbd3;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -38,9 +34,7 @@
       display: block;
     }
 
-    a {
-      color: inherit;
-    }
+    a { color: inherit; }
 
     header {
       position: sticky;
@@ -72,7 +66,8 @@
 
     nav {
       display: flex;
-      gap: 28px;
+      gap: 26px;
+      align-items: center;
       font-size: 13px;
       text-transform: uppercase;
     }
@@ -170,9 +165,7 @@
       letter-spacing: 0.04em;
     }
 
-    .button:hover {
-      opacity: 0.9;
-    }
+    .button:hover { opacity: 0.9; }
 
     section {
       padding: 85px 7%;
@@ -296,8 +289,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 38% 35%;
-      filter: saturate(0.9) contrast(1.02);
+      object-position: center 35%;
     }
 
     .about-copy {
@@ -313,7 +305,7 @@
 
     .trail {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 0.75fr 1.25fr;
       gap: 55px;
       background: #efeae2;
     }
@@ -339,6 +331,13 @@
       max-width: 700px;
       margin: 0 auto;
       color: #d3cec6;
+      font-size: 18px;
+    }
+
+    .email {
+      display: block;
+      margin-top: 25px;
+      color: white;
       font-size: 18px;
     }
 
@@ -380,9 +379,7 @@
         padding: 16px 6%;
       }
 
-      nav {
-        display: none;
-      }
+      nav { display: none; }
 
       .logo {
         font-size: 30px;
@@ -439,6 +436,7 @@
 
 <main>
 
+  <!-- ACCUEIL -->
   <section class="hero">
     <div class="hero-copy">
 
@@ -451,10 +449,9 @@
       </h1>
 
       <p class="lead">
-        RGO accompagne les entrepreneurs de la céramique lorsqu'il faut
-        trouver son marché, vendre, se développer à l'international,
-        préparer les échanges avec des investisseurs ou traverser
-        une étape difficile.
+        RGO accompagne les entrepreneurs de la céramique pour transformer
+        une technologie en marché : stratégie commerciale, développement
+        international, investisseurs et décisions clés du dirigeant.
       </p>
 
       <div class="signature">
@@ -467,11 +464,14 @@
       <a class="button" href="#contact">
         Échanger sur votre projet
       </a>
+
     </div>
 
     <div class="hero-image"></div>
   </section>
 
+
+  <!-- DIFFERENCIATION -->
   <section class="experience">
 
     <div class="experience-quote">
@@ -496,6 +496,8 @@
 
   </section>
 
+
+  <!-- CLIENTS -->
   <section class="audiences">
 
     <div class="section-title">
@@ -506,32 +508,36 @@
     <div class="audience-grid">
 
       <article class="audience-card" id="entrepreneurs">
-        <div class="visual">
-          Entrepreneurs & dirigeants
-        </div>
+        <div class="visual">Entrepreneurs & dirigeants</div>
+
         <div class="content">
           <h3>Vous êtes entrepreneur ou dirigeant</h3>
+
           <p>
-            Votre technologie fonctionne. Il faut maintenant en faire une entreprise
-            qui fonctionne.
+            Votre technologie fonctionne. Il faut maintenant en faire
+            une entreprise qui fonctionne.
           </p>
+
           <p>
-            RGO vous accompagne pour challenger votre stratégie, trouver vos marchés,
-            développer vos ventes, aborder l'international et préparer les étapes
-            importantes avec vos investisseurs.
+            RGO vous accompagne pour challenger votre stratégie,
+            trouver vos marchés, développer vos ventes,
+            aborder l'international et préparer les étapes importantes
+            avec vos investisseurs.
           </p>
         </div>
       </article>
 
+
       <article class="audience-card" id="investisseurs">
-        <div class="visual">
-          Investisseurs
-        </div>
+        <div class="visual">Investisseurs</div>
+
         <div class="content">
           <h3>Vous êtes investisseur</h3>
+
           <p>
             Vous devez comprendre ce qui se trouve derrière la technologie.
           </p>
+
           <p>
             RGO apporte une lecture industrielle et entrepreneuriale :
             technologie, marché, business model, stratégie commerciale
@@ -540,24 +546,27 @@
         </div>
       </article>
 
+
       <article class="audience-card" id="ecosysteme">
-        <div class="visual">
-          Clusters · Fédérations · Formation
-        </div>
+        <div class="visual">Clusters · Fédérations · Formation</div>
+
         <div class="content">
           <h3>Vous représentez un acteur de l'écosystème</h3>
+
           <p>
-            Conférences, formations et interventions destinées aux entrepreneurs
-            et dirigeants, construites à partir de situations réellement vécues
-            dans l'industrie et l'entrepreneuriat.
+            Conférences, formations et interventions destinées
+            aux entrepreneurs et dirigeants, construites à partir
+            de situations réellement vécues dans l'industrie
+            et l'entrepreneuriat.
           </p>
         </div>
       </article>
 
     </div>
-
   </section>
 
+
+  <!-- OFFRES -->
   <section class="services">
 
     <div class="section-title">
@@ -570,47 +579,56 @@
       <div class="service">
         <div class="service-number">01</div>
         <h3>Challenger le dirigeant</h3>
+
         <p>
           Un regard extérieur expérimenté pour challenger une décision,
           une stratégie ou un business model, sans décider à la place du dirigeant.
         </p>
       </div>
 
+
       <div class="service">
         <div class="service-number">02</div>
-        <h3>Trouver ses marchés et vendre à l'international</h3>
+        <h3>Développer ses marchés, en France et à l'international</h3>
+
         <p>
           Passer d'une technologie intéressante à une proposition
           que des clients industriels sont réellement prêts à acheter.
         </p>
       </div>
 
+
       <div class="service">
         <div class="service-number">03</div>
         <h3>Se préparer aux investisseurs</h3>
+
         <p>
           Challenger le business plan, les hypothèses commerciales
           et la stratégie avant d'entrer dans les discussions financières.
         </p>
       </div>
 
+
       <div class="service">
         <div class="service-number">04</div>
-        <h3>Apporter un regard sectoriel à l'investisseur</h3>
+        <h3>Éclairer la décision de l'investisseur</h3>
+
         <p>
           Analyser une entreprise céramique au-delà de son pitch :
-          technologie, marché, potentiel commercial, équipe et capacité d'exécution.
+          technologie, marché, potentiel commercial,
+          équipe et capacité d'exécution.
         </p>
       </div>
 
     </div>
-
   </section>
 
+
+  <!-- PARCOURS -->
   <section class="about" id="richard">
 
     <div class="portrait-wrap">
-      <img src="richard.gaignon.jpg" alt="Richard Gaignon">
+      <img src="richard-gaignon.jpg" alt="Richard Gaignon">
     </div>
 
     <div class="about-copy">
@@ -620,7 +638,8 @@
       </div>
 
       <h2>
-        Plus de 30 ans dans l'industrie céramique.
+        De l'ingénierie céramique à l'entrepreneuriat.
+        Plus de 30 ans d'expérience industrielle.
       </h2>
 
       <p>
@@ -641,37 +660,42 @@
       <p>
         <strong>
           RGO est né de l'envie de transmettre cette expérience
-          à d'autres entrepreneurs — réussites, erreurs et périodes difficiles comprises.
+          à d'autres entrepreneurs — réussites, erreurs
+          et périodes difficiles comprises.
         </strong>
       </p>
 
     </div>
-
   </section>
 
+
+  <!-- ULTRA TRAIL -->
   <section class="trail">
 
     <div>
       <div class="eyebrow">Une question de durée</div>
+
       <h2>
         Les projets difficiles ne se jouent pas toujours au départ.
       </h2>
     </div>
 
     <div class="trail-note">
-      <p>
-        Ancien ultra-traileur, j'ai participé à des épreuves allant jusqu'à 220 km.
-      </p>
 
       <p>
-        Une expérience assez proche, sur certains points, de l'entrepreneuriat :
-        savoir pourquoi on avance, accepter que tout ne se déroule pas comme prévu
-        et continuer lorsque le projet devient long.
+        Du GR20 aux ultra-trails jusqu'à 220 km :
+        j'ai toujours aimé les défis longs.
+        L'entrepreneuriat m'a appris la même chose autrement :
+        l'enthousiasme du départ ne suffit pas.
+        Il faut savoir durer, s'adapter lorsque le plan ne fonctionne plus
+        et continuer à décider dans les moments difficiles.
       </p>
+
     </div>
-
   </section>
 
+
+  <!-- CONTACT -->
   <section class="contact" id="contact">
 
     <div class="eyebrow">
@@ -687,8 +711,12 @@
       si mon expérience peut être utile à votre situation.
     </p>
 
-    <a class="button" href="mailto:contact@gaignon.com">
+    <a class="button" href="mailto:rgo@gaignon.com">
       Échanger sur votre projet
+    </a>
+
+    <a class="email" href="mailto:rgo@gaignon.com">
+      rgo@gaignon.com
     </a>
 
   </section>
