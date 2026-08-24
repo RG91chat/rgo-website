@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RGO | Richard Gaignon</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #292725;
+      background: #f7f5f0;
+    }
+
+    header {
+      padding: 24px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 11px;
+      font-weight: normal;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      margin-left: 28px;
+      text-decoration: none;
+      color: #292725;
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 110px 8%;
+      max-width: 1000px;
+    }
+
+    .eyebrow {
+      color: #a65332;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 1.05;
+      font-weight: normal;
+      max-width: 900px;
+      margin: 20px 0 30px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 20px;
+      line-height: 1.6;
+      color: #57524d;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 15px 24px;
+      background: #a65332;
+      color: white;
+      text-decoration: none;
+    }
+
+    .section {
+      padding: 80px 8%;
+      background: white;
+    }
+
+    .section.dark {
+      background: #292725;
+      color: white;
+    }
+
+    h2 {
+      font-family: Georgia, serif;
+      font-size: 40px;
+      font-weight: normal;
+      margin-bottom: 25px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .card {
+      padding: 35px;
+      background: #f1eee8;
+    }
+
+    .card h3 {
+      font-family: Georgia, serif;
+      font-size: 25px;
+    }
+
+    footer {
+      padding: 35px 8%;
+      background: #1f1e1c;
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        display: none;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 70px;
+        padding-bottom: 70px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    RGO
+    <span>RICHARD GAIGNON</span>
+  </div>
+
+  <nav>
+    <a href="#entrepreneurs">Entrepreneurs</a>
+    <a href="#investisseurs">Investisseurs</a>
+    <a href="#richard">Richard Gaignon</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+
+  <div class="eyebrow">
+    Conseil stratégique · Industrie céramique
+  </div>
+
+  <h1>
+    Une technologie céramique ne suffit pas à construire une entreprise.
+  </h1>
+
+  <p>
+    RGO accompagne les entrepreneurs de la céramique lorsqu'il faut
+    trouver son marché, vendre, se développer à l'international,
+    préparer les échanges avec des investisseurs ou traverser
+    une étape difficile.
+  </p>
+
+  <a class="button" href="#contact">
+    Échanger sur votre projet
+  </a>
+
+</section>
+
+<section class="section dark">
+
+  <h2>
+    Des conseils issus de l'expérience.
+  </h2>
+
+  <p>
+    Créer, reprendre, développer et internationaliser une entreprise
+    industrielle. Changer de modèle économique. Accueillir un nouvel
+    actionnaire. Traverser les périodes de croissance comme les
+    périodes difficiles.
+  </p>
+
+  <p>
+    RGO s'appuie sur une expérience vécue de dirigeant,
+    pas uniquement sur des méthodes de conseil.
+  </p>
+
+</section>
+
+<section class="section">
+
+  <div class="eyebrow">
+    RGO
+  </div>
+
+  <h2>
+    Là où RGO peut être utile
+  </h2>
+
+  <div class="cards">
+
+    <div class="card" id="entrepreneurs">
+      <h3>Challenger le dirigeant</h3>
+      <p>
+        Un regard extérieur expérimenté pour challenger une stratégie,
+        un business model ou une décision importante, sans décider
+        à la place du dirigeant.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Trouver ses marchés et vendre à l'international</h3>
+      <p>
+        Passer d'une technologie intéressante à une proposition
+        que des clients industriels sont réellement prêts à acheter.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Se préparer aux investisseurs</h3>
+      <p>
+        Challenger le business plan, les hypothèses commerciales
+        et la stratégie avant d'entrer dans les discussions financières.
+      </p>
+    </div>
+
+    <div class="card" id="investisseurs">
+      <h3>Apporter un regard sectoriel à l'investisseur</h3>
+      <p>
+        Analyser une entreprise céramique au-delà de son pitch :
+        technologie, marché, potentiel commercial, équipe
+        et capacité d'exécution.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section" id="richard">
+
+  <div class="eyebrow">
+    Richard Gaignon
+  </div>
+
+  <h2>
+    Plus de 30 ans dans l'industrie céramique.
+  </h2>
+
+  <p>
+    De l'ingénierie céramique et des projets industriels internationaux
+    à l'entrepreneuriat, aux céramiques techniques et à la fabrication
+    additive, mon parcours m'a placé des deux côtés de nombreuses
+    décisions auxquelles sont confrontés les dirigeants.
+  </p>
+
+  <p>
+    RGO est né de l'envie de transmettre cette expérience
+    à d'autres entrepreneurs — réussites, erreurs et périodes
+    difficiles comprises.
+  </p>
+
+</section>
+
+<section class="section dark" id="contact">
+
+  <div class="eyebrow">
+    Parlons-en
+  </div>
+
+  <h2>
+    Un projet, une décision difficile ou simplement besoin d'un regard extérieur ?
+  </h2>
+
+  <p>
+    Un premier échange permet de déterminer simplement
+    si mon expérience peut être utile à votre situation.
+  </p>
+
+  <a class="button" href="mailto:contact@gaignon.com">
+    Échanger sur votre projet
+  </a>
+
+</section>
+
+</main>
+
+<footer>
+  © RGO — Richard Gaignon
+</footer>
+
+</body>
+</html>
