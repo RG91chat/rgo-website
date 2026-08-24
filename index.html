@@ -3,839 +3,141 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>RGO | Richard Gaignon</title>
   <meta name="description" content="RGO accompagne les entrepreneurs de la céramique : stratégie commerciale, développement international, investisseurs et décisions clés du dirigeant.">
-
   <style>
-    :root {
-      --bg: #f4f1eb;
-      --paper: #ffffff;
-      --ink: #242321;
-      --muted: #6c675f;
-      --accent: #b45c38;
-      --dark: #252524;
-      --line: #dfdbd3;
+    :root { --bg:#f4f1eb; --paper:#fff; --ink:#242321; --muted:#6c675f; --accent:#b45c38; --dark:#252524; --line:#dfdbd3; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--ink); background:var(--bg); line-height:1.55; }
+    img { max-width:100%; display:block; }
+    a { color:inherit; }
+    header { position:sticky; top:0; z-index:20; display:flex; justify-content:space-between; align-items:center; padding:20px 7%; background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); backdrop-filter:blur(8px); }
+    .logo { font-size:38px; font-weight:700; letter-spacing:.12em; line-height:.9; }
+    .logo span { display:block; margin-top:10px; font-size:11px; font-weight:500; letter-spacing:.24em; }
+    nav { display:flex; gap:26px; align-items:center; font-size:13px; text-transform:uppercase; }
+    nav a { text-decoration:none; }
+    nav a:hover { color:var(--accent); }
+    .lang-switch { padding-left:8px; font-weight:700; color:var(--accent); }
+    .hero { background:var(--paper); }
+    .hero-copy { padding:95px 7% 70px; max-width:1500px; margin:0 auto; }
+    .hero-image { width:100%; height:min(58vw,650px); min-height:390px; overflow:hidden; background:#eeeae3; }
+    .hero-image img { width:100%; height:100%; object-fit:cover; object-position:center; }
+    .eyebrow { color:var(--accent); font-size:13px; text-transform:uppercase; letter-spacing:.18em; font-weight:700; margin-bottom:18px; }
+    h1,h2,h3 { font-family:Georgia,"Times New Roman",serif; font-weight:400; }
+    h1 { font-size:clamp(52px,6vw,92px); line-height:1.02; margin:0 0 30px; max-width:1400px; }
+    h2 { font-size:clamp(34px,3.2vw,52px); line-height:1.1; margin:0 0 25px; }
+    h3 { font-size:26px; line-height:1.15; margin:0 0 16px; }
+    .hero-bottom { display:grid; grid-template-columns:1.2fr .8fr; gap:60px; align-items:start; margin-top:30px; }
+    .lead { font-size:20px; color:var(--muted); max-width:820px; margin:0; }
+    .signature { font-size:14px; max-width:480px; }
+    .signature strong { color:var(--accent); text-transform:uppercase; letter-spacing:.08em; }
+    .button { display:inline-block; width:fit-content; margin-top:26px; padding:15px 24px; background:var(--accent); color:#fff; text-decoration:none; font-size:14px; text-transform:uppercase; letter-spacing:.04em; }
+    .button:hover { opacity:.9; }
+    section { padding:85px 7%; }
+    .experience { display:grid; grid-template-columns:.85fr 1.15fr; gap:70px; background:#f7f4ef; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .experience-quote { font-family:Georgia,"Times New Roman",serif; font-size:34px; line-height:1.15; }
+    .experience-text { font-size:17px; color:var(--muted); }
+    .experience-text strong { color:var(--ink); }
+    .audiences { background:var(--paper); }
+    .section-title { text-align:center; max-width:900px; margin:0 auto 48px; }
+    .audience-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .audience-card { border:1px solid var(--line); background:#fbfaf7; overflow:hidden; }
+    .audience-card .visual { height:180px; background:linear-gradient(135deg,#ddd7cf,#f5f2ec); display:flex; align-items:center; justify-content:center; font-family:Georgia,"Times New Roman",serif; font-size:22px; color:#77716a; text-align:center; padding:30px; }
+    .audience-card .content { padding:28px; }
+    .audience-card p,.service p,.about-copy p,.trail p { color:var(--muted); }
+    .services { background:#f7f4ef; }
+    .services-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:42px; }
+    .service { padding:26px 22px; border-top:3px solid var(--accent); background:var(--paper); }
+    .service-number { color:var(--accent); font-weight:700; margin-bottom:10px; }
+    .service p { font-size:15px; }
+    .about { display:grid; grid-template-columns:.8fr 1.2fr; gap:55px; align-items:stretch; background:var(--paper); }
+    .portrait-wrap { min-height:520px; overflow:hidden; background:#dedbd5; }
+    .portrait-wrap img { width:100%; height:100%; object-fit:cover; object-position:center 35%; }
+    .about-copy { display:flex; flex-direction:column; justify-content:center; }
+    .about-copy p,.trail p { font-size:17px; }
+    .trail { display:grid; grid-template-columns:.75fr 1.25fr; gap:55px; background:#efeae2; }
+    .trail-note { padding:35px; border-left:3px solid var(--accent); background:rgba(255,255,255,.55); }
+    .contact { background:var(--dark); color:#fff; text-align:center; }
+    .contact p { max-width:700px; margin:0 auto; color:#d3cec6; font-size:18px; }
+    .email { display:block; margin-top:25px; color:#fff; font-size:18px; }
+    footer { padding:28px 7%; background:#1d1d1c; color:#aaa59f; font-size:13px; text-align:center; }
+    @media (max-width:1000px) {
+      .hero-bottom,.experience,.about,.trail { grid-template-columns:1fr; }
+      .hero-bottom { gap:30px; }
+      .audience-grid,.services-grid { grid-template-columns:repeat(2,1fr); }
+      .portrait-wrap { min-height:420px; }
+      .hero-image { min-height:360px; }
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.55;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 7%;
-      background: rgba(255,255,255,0.96);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(8px);
-    }
-
-    .logo {
-      font-size: 38px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      line-height: 0.9;
-    }
-
-    .logo span {
-      display: block;
-      margin-top: 10px;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.24em;
-    }
-
-    nav {
-      display: flex;
-      gap: 26px;
-      align-items: center;
-      font-size: 13px;
-      text-transform: uppercase;
-    }
-
-    nav a {
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    .lang-switch {
-      padding-left: 8px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .hero {
-      background: var(--paper);
-    }
-
-    .hero-copy {
-      padding: 95px 7% 70px;
-      max-width: 1500px;
-      margin: 0 auto;
-    }
-
-    .hero-image {
-      width: 100%;
-      height: min(58vw, 650px);
-      min-height: 390px;
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(255,255,255,0.04),
-          rgba(255,255,255,0)
-        ),
-        url("ceramiques-blanches.png") center center / cover no-repeat;
-    }
-
-    .eyebrow {
-      color: var(--accent);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 400;
-    }
-
-    h1 {
-      font-size: clamp(52px, 6vw, 92px);
-      line-height: 1.02;
-      margin: 0 0 30px;
-      max-width: 1400px;
-    }
-
-    h2 {
-      font-size: clamp(34px, 3.2vw, 52px);
-      line-height: 1.1;
-      margin: 0 0 25px;
-    }
-
-    h3 {
-      font-size: 26px;
-      line-height: 1.15;
-      margin: 0 0 16px;
-    }
-
-    .hero-bottom {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 60px;
-      align-items: end;
-      margin-top: 30px;
-    }
-
-    .lead {
-      font-size: 20px;
-      color: var(--muted);
-      max-width: 820px;
-      margin: 0;
-    }
-
-    .signature {
-      font-size: 14px;
-      max-width: 480px;
-    }
-
-    .signature strong {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .button {
-      display: inline-block;
-      width: fit-content;
-      margin-top: 26px;
-      padding: 15px 24px;
-      background: var(--accent);
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .button:hover {
-      opacity: 0.9;
-    }
-
-    section {
-      padding: 85px 7%;
-    }
-
-    .experience {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 70px;
-      background: #f7f4ef;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .experience-quote {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 34px;
-      line-height: 1.15;
-    }
-
-    .experience-text {
-      font-size: 17px;
-      color: var(--muted);
-    }
-
-    .experience-text strong {
-      color: var(--ink);
-    }
-
-    .audiences {
-      background: var(--paper);
-    }
-
-    .section-title {
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto 48px;
-    }
-
-    .audience-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .audience-card {
-      border: 1px solid var(--line);
-      background: #fbfaf7;
-      overflow: hidden;
-    }
-
-    .audience-card .visual {
-      height: 180px;
-      background: linear-gradient(135deg, #ddd7cf, #f5f2ec);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 22px;
-      color: #77716a;
-      text-align: center;
-      padding: 30px;
-    }
-
-    .audience-card .content {
-      padding: 28px;
-    }
-
-    .audience-card p {
-      color: var(--muted);
-    }
-
-    .services {
-      background: #f7f4ef;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-top: 42px;
-    }
-
-    .service {
-      padding: 26px 22px;
-      border-top: 3px solid var(--accent);
-      background: var(--paper);
-    }
-
-    .service-number {
-      color: var(--accent);
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .service p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .about {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 55px;
-      align-items: stretch;
-      background: var(--paper);
-    }
-
-    .portrait-wrap {
-      min-height: 520px;
-      overflow: hidden;
-      background: #dedbd5;
-    }
-
-    .portrait-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 35%;
-    }
-
-    .about-copy {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .about-copy p {
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .trail {
-      display: grid;
-      grid-template-columns: 0.75fr 1.25fr;
-      gap: 55px;
-      background: #efeae2;
-    }
-
-    .trail p {
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .trail-note {
-      padding: 35px;
-      border-left: 3px solid var(--accent);
-      background: rgba(255,255,255,0.55);
-    }
-
-    .contact {
-      background: var(--dark);
-      color: white;
-      text-align: center;
-    }
-
-    .contact p {
-      max-width: 700px;
-      margin: 0 auto;
-      color: #d3cec6;
-      font-size: 18px;
-    }
-
-    .email {
-      display: block;
-      margin-top: 25px;
-      color: white;
-      font-size: 18px;
-    }
-
-    footer {
-      padding: 28px 7%;
-      background: #1d1d1c;
-      color: #aaa59f;
-      font-size: 13px;
-      text-align: center;
-    }
-
-    @media (max-width: 1000px) {
-      .hero-bottom,
-      .experience,
-      .about,
-      .trail {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-bottom {
-        gap: 30px;
-      }
-
-      .audience-grid,
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .portrait-wrap {
-        min-height: 420px;
-      }
-
-      .hero-image {
-        min-height: 360px;
-      }
-    }
-
-    @media (max-width: 700px) {
-      header {
-        padding: 16px 6%;
-      }
-
-      nav {
-        gap: 12px;
-      }
-
-      nav a:not(.lang-switch) {
-        display: none;
-      }
-
-      .lang-switch {
-        display: block;
-        font-size: 14px;
-      }
-
-      .logo {
-        font-size: 30px;
-      }
-
-      section {
-        padding: 65px 6%;
-      }
-
-      .hero-copy {
-        padding: 70px 6% 50px;
-      }
-
-      h1 {
-        font-size: clamp(46px, 13vw, 66px);
-      }
-
-      .hero-image {
-        height: 62vw;
-        min-height: 280px;
-      }
-
-      .experience {
-        gap: 25px;
-      }
-
-      .experience-quote {
-        font-size: 28px;
-      }
-
-      .audience-grid,
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .portrait-wrap {
-        min-height: 380px;
-      }
+    @media (max-width:700px) {
+      header { padding:16px 6%; }
+      nav { gap:12px; }
+      nav a:not(.lang-switch) { display:none; }
+      .lang-switch { display:block; font-size:14px; }
+      .logo { font-size:30px; }
+      section { padding:65px 6%; }
+      .hero-copy { padding:70px 6% 50px; }
+      h1 { font-size:clamp(46px,13vw,66px); }
+      .hero-image { height:62vw; min-height:280px; }
+      .experience { gap:25px; }
+      .experience-quote { font-size:28px; }
+      .audience-grid,.services-grid { grid-template-columns:1fr; }
+      .portrait-wrap { min-height:380px; }
     }
   </style>
 </head>
-
 <body>
-
 <header>
-
-  <div class="logo">
-    RGO
-    <span>RICHARD GAIGNON</span>
-  </div>
-
-  <nav>
-    <a href="#entrepreneurs">Entrepreneurs</a>
-    <a href="#investisseurs">Investisseurs</a>
-    <a href="#ecosysteme">Écosystème</a>
-    <a href="#richard">Richard Gaignon</a>
-    <a href="#contact">Contact</a>
-    <a class="lang-switch" href="en.html">EN</a>
+  <div class="logo">RGO<span>RICHARD GAIGNON</span></div>
+  <nav aria-label="Navigation principale">
+    <a href="#entrepreneurs">Entrepreneurs</a><a href="#investisseurs">Investisseurs</a><a href="#ecosysteme">Écosystème</a><a href="#richard">Richard Gaignon</a><a href="#contact">Contact</a><a class="lang-switch" href="en.html" lang="en">EN</a>
   </nav>
-
 </header>
-
 <main>
-
   <div class="hero">
-
     <div class="hero-copy">
-
-      <div class="eyebrow">
-        Conseil stratégique · Industrie céramique
-      </div>
-
-      <h1>
-        Une technologie céramique ne suffit pas à construire une entreprise.
-      </h1>
-
+      <div class="eyebrow">Conseil stratégique · Industrie céramique</div>
+      <h1>Une technologie céramique ne suffit pas à construire une entreprise.</h1>
       <div class="hero-bottom">
-
-        <div>
-          <p class="lead">
-            RGO accompagne les entrepreneurs de la céramique pour transformer
-            une technologie en marché : stratégie commerciale, développement
-            international, investisseurs et décisions clés du dirigeant.
-          </p>
-
-          <a class="button" href="#contact">
-            Échanger sur votre projet
-          </a>
-        </div>
-
-        <div class="signature">
-          <strong>Richard Gaignon</strong><br>
-          Entrepreneur et dirigeant de l'industrie céramique,
-          avec plus de 30 ans d'expérience de ses marchés,
-          de ses technologies et de son développement international.
-        </div>
-
+        <div><p class="lead">RGO accompagne les entrepreneurs de la céramique pour transformer une technologie en marché : stratégie commerciale, développement international, investisseurs et décisions clés du dirigeant.</p><a class="button" href="#contact">Échanger sur votre projet</a></div>
+        <div class="signature"><strong>Richard Gaignon</strong><br>Entrepreneur et dirigeant de l'industrie céramique, avec plus de 30 ans d'expérience de ses marchés, de ses technologies et de son développement international.</div>
       </div>
-
     </div>
-
-    <div class="hero-image"></div>
-
+    <div class="hero-image"><img src="ceramiques-blanches.png" alt="Pièces en céramique blanche" width="1600" height="900"></div>
   </div>
-
-
   <section class="experience">
-
-    <div class="experience-quote">
-      Des conseils issus de l'expérience,
-      y compris de ce qui n'a pas fonctionné.
-    </div>
-
-    <div class="experience-text">
-      <p>
-        Créer, reprendre, développer et internationaliser une entreprise industrielle.
-        Changer de modèle économique. Accueillir un nouvel actionnaire.
-        Traverser les périodes de croissance comme les périodes difficiles.
-      </p>
-
-      <p>
-        <strong>
-          RGO s'appuie sur une expérience vécue de dirigeant,
-          pas uniquement sur des méthodes de conseil.
-        </strong>
-      </p>
-    </div>
-
+    <div class="experience-quote">Des conseils issus de l'expérience, y compris de ce qui n'a pas fonctionné.</div>
+    <div class="experience-text"><p>Créer, reprendre, développer et internationaliser une entreprise industrielle. Changer de modèle économique. Accueillir un nouvel actionnaire. Traverser les périodes de croissance comme les périodes difficiles.</p><p><strong>RGO s'appuie sur une expérience vécue de dirigeant, pas uniquement sur des méthodes de conseil.</strong></p></div>
   </section>
-
-
   <section class="audiences">
-
-    <div class="section-title">
-
-      <div class="eyebrow">
-        Trois portes d'entrée
-      </div>
-
-      <h2>
-        Selon votre situation
-      </h2>
-
-    </div>
-
+    <div class="section-title"><div class="eyebrow">Trois portes d'entrée</div><h2>Selon votre situation</h2></div>
     <div class="audience-grid">
-
-      <article class="audience-card" id="entrepreneurs">
-
-        <div class="visual">
-          Entrepreneurs & dirigeants
-        </div>
-
-        <div class="content">
-
-          <h3>
-            Vous êtes entrepreneur ou dirigeant
-          </h3>
-
-          <p>
-            Votre technologie fonctionne.
-            Il faut maintenant en faire une entreprise qui fonctionne.
-          </p>
-
-          <p>
-            RGO vous accompagne pour challenger votre stratégie,
-            trouver vos marchés, développer vos ventes,
-            aborder l'international et préparer les étapes importantes
-            avec vos investisseurs.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="audience-card" id="investisseurs">
-
-        <div class="visual">
-          Investisseurs
-        </div>
-
-        <div class="content">
-
-          <h3>
-            Vous êtes investisseur
-          </h3>
-
-          <p>
-            Vous devez comprendre ce qui se trouve derrière la technologie.
-          </p>
-
-          <p>
-            RGO apporte une lecture industrielle et entrepreneuriale :
-            technologie, marché, business model, stratégie commerciale
-            et capacité de l'équipe à exécuter son projet.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="audience-card" id="ecosysteme">
-
-        <div class="visual">
-          Clusters · Fédérations · Formation
-        </div>
-
-        <div class="content">
-
-          <h3>
-            Vous représentez un acteur de l'écosystème
-          </h3>
-
-          <p>
-            Conférences, formations et interventions destinées
-            aux entrepreneurs et dirigeants, construites à partir
-            de situations réellement vécues dans l'industrie
-            et l'entrepreneuriat.
-          </p>
-
-        </div>
-
-      </article>
-
+      <article class="audience-card" id="entrepreneurs"><div class="visual">Entrepreneurs &amp; dirigeants</div><div class="content"><h3>Vous êtes entrepreneur ou dirigeant</h3><p>Votre technologie fonctionne. Il faut maintenant en faire une entreprise qui fonctionne.</p><p>RGO vous accompagne pour challenger votre stratégie, trouver vos marchés, développer vos ventes, aborder l'international et préparer les étapes importantes avec vos investisseurs.</p></div></article>
+      <article class="audience-card" id="investisseurs"><div class="visual">Investisseurs</div><div class="content"><h3>Vous êtes investisseur</h3><p>Vous devez comprendre ce qui se trouve derrière la technologie.</p><p>RGO apporte une lecture industrielle et entrepreneuriale : technologie, marché, business model, stratégie commerciale et capacité de l'équipe à exécuter son projet.</p></div></article>
+      <article class="audience-card" id="ecosysteme"><div class="visual">Clusters · Fédérations · Formation</div><div class="content"><h3>Vous représentez un acteur de l'écosystème</h3><p>Conférences, formations et interventions destinées aux entrepreneurs et dirigeants, construites à partir de situations réellement vécues dans l'industrie et l'entrepreneuriat.</p></div></article>
     </div>
-
   </section>
-
-
   <section class="services">
-
-    <div class="section-title">
-
-      <div class="eyebrow">
-        RGO
-      </div>
-
-      <h2>
-        Là où RGO peut être utile
-      </h2>
-
-    </div>
-
+    <div class="section-title"><div class="eyebrow">RGO</div><h2>Là où RGO peut être utile</h2></div>
     <div class="services-grid">
-
-      <div class="service">
-
-        <div class="service-number">01</div>
-
-        <h3>
-          Challenger le dirigeant
-        </h3>
-
-        <p>
-          Un regard extérieur expérimenté pour challenger une décision,
-          une stratégie ou un business model,
-          sans décider à la place du dirigeant.
-        </p>
-
-      </div>
-
-
-      <div class="service">
-
-        <div class="service-number">02</div>
-
-        <h3>
-          Développer ses marchés, en France et à l'international
-        </h3>
-
-        <p>
-          Passer d'une technologie intéressante à une proposition
-          que des clients industriels sont réellement prêts à acheter.
-        </p>
-
-      </div>
-
-
-      <div class="service">
-
-        <div class="service-number">03</div>
-
-        <h3>
-          Se préparer aux investisseurs
-        </h3>
-
-        <p>
-          Challenger le business plan, les hypothèses commerciales
-          et la stratégie avant d'entrer dans les discussions financières.
-        </p>
-
-      </div>
-
-
-      <div class="service">
-
-        <div class="service-number">04</div>
-
-        <h3>
-          Éclairer la décision de l'investisseur
-        </h3>
-
-        <p>
-          Analyser une entreprise céramique au-delà de son pitch :
-          technologie, marché, potentiel commercial,
-          équipe et capacité d'exécution.
-        </p>
-
-      </div>
-
+      <div class="service"><div class="service-number">01</div><h3>Challenger le dirigeant</h3><p>Un regard extérieur expérimenté pour challenger une décision, une stratégie ou un business model, sans décider à la place du dirigeant.</p></div>
+      <div class="service"><div class="service-number">02</div><h3>Développer ses marchés, en France et à l'international</h3><p>Passer d'une technologie intéressante à une proposition que des clients industriels sont réellement prêts à acheter.</p></div>
+      <div class="service"><div class="service-number">03</div><h3>Se préparer aux investisseurs</h3><p>Challenger le business plan, les hypothèses commerciales et la stratégie avant d'entrer dans les discussions financières.</p></div>
+      <div class="service"><div class="service-number">04</div><h3>Éclairer la décision de l'investisseur</h3><p>Analyser une entreprise céramique au-delà de son pitch : technologie, marché, potentiel commercial, équipe et capacité d'exécution.</p></div>
     </div>
-
   </section>
-
-
   <section class="about" id="richard">
-
-    <div class="portrait-wrap">
-      <img src="richard-gaignon.jpg" alt="Richard Gaignon">
-    </div>
-
-    <div class="about-copy">
-
-      <div class="eyebrow">
-        Richard Gaignon
-      </div>
-
-      <h2>
-        De l'ingénierie céramique à l'entrepreneuriat.
-        Plus de 30 ans d'expérience industrielle.
-      </h2>
-
-      <p>
-        Ingénieur de formation, j'ai d'abord évolué pendant près de vingt ans
-        dans l'ingénierie céramique et les projets industriels internationaux,
-        avant de reprendre avec Christophe Chaput CeramPilot en 2009,
-        devenue 3DCeram.
-      </p>
-
-      <p>
-        Mon parcours m'a conduit de la céramique traditionnelle
-        aux céramiques techniques et à la fabrication additive,
-        mais aussi de l'ingénierie à la vente,
-        de la vente à l'entrepreneuriat
-        et de l'entrepreneuriat à la direction d'entreprise.
-      </p>
-
-      <p>
-        <strong>
-          RGO est né de l'envie de transmettre cette expérience
-          à d'autres entrepreneurs — réussites, erreurs
-          et périodes difficiles comprises.
-        </strong>
-      </p>
-
-    </div>
-
+    <div class="portrait-wrap"><img src="richard-gaignon.jpg" alt="Richard Gaignon"></div>
+    <div class="about-copy"><div class="eyebrow">Richard Gaignon</div><h2>De l'ingénierie céramique à l'entrepreneuriat. Plus de 30 ans d'expérience industrielle.</h2><p>Ingénieur de formation, j'ai d'abord évolué pendant près de vingt ans dans l'ingénierie céramique et les projets industriels internationaux, avant de reprendre avec Christophe Chaput CeramPilot en 2009, devenue 3DCeram.</p><p>Mon parcours m'a conduit de la céramique traditionnelle aux céramiques techniques et à la fabrication additive, mais aussi de l'ingénierie à la vente, de la vente à l'entrepreneuriat et de l'entrepreneuriat à la direction d'entreprise.</p><p><strong>RGO est né de l'envie de transmettre cette expérience à d'autres entrepreneurs — réussites, erreurs et périodes difficiles comprises.</strong></p></div>
   </section>
-
-
   <section class="trail">
-
-    <div>
-
-      <div class="eyebrow">
-        Une question de durée
-      </div>
-
-      <h2>
-        Les projets difficiles ne se jouent pas toujours au départ.
-      </h2>
-
-    </div>
-
-    <div class="trail-note">
-
-      <p>
-        Du GR20 aux ultra-trails jusqu'à 220 km :
-        j'ai toujours aimé les défis longs.
-        L'entrepreneuriat m'a appris la même chose autrement :
-        l'enthousiasme du départ ne suffit pas.
-        Il faut savoir durer, s'adapter lorsque le plan ne fonctionne plus
-        et continuer à décider dans les moments difficiles.
-      </p>
-
-    </div>
-
+    <div><div class="eyebrow">Une question de durée</div><h2>Les projets difficiles ne se jouent pas toujours au départ.</h2></div>
+    <div class="trail-note"><p>Du GR20 aux ultra-trails jusqu'à 220 km : j'ai toujours aimé les défis longs. L'entrepreneuriat m'a appris la même chose autrement : l'enthousiasme du départ ne suffit pas. Il faut savoir durer, s'adapter lorsque le plan ne fonctionne plus et continuer à décider dans les moments difficiles.</p></div>
   </section>
-
-
   <section class="contact" id="contact">
-
-    <div class="eyebrow">
-      Parlons-en
-    </div>
-
-    <h2>
-      Votre projet mérite peut-être un regard extérieur expérimenté.
-    </h2>
-
-    <p>
-      Un premier échange permet de déterminer simplement
-      si mon expérience peut être utile à votre situation.
-    </p>
-
-    <a class="button" href="mailto:rgo@gaignon.com">
-      Échanger sur votre projet
-    </a>
-
-    <a class="email" href="mailto:rgo@gaignon.com">
-      rgo@gaignon.com
-    </a>
-
+    <div class="eyebrow">Parlons-en</div><h2>Votre projet mérite peut-être un regard extérieur expérimenté.</h2><p>Un premier échange permet de déterminer simplement si mon expérience peut être utile à votre situation.</p><a class="button" href="mailto:rgo@gaignon.com">Échanger sur votre projet</a><a class="email" href="mailto:rgo@gaignon.com">rgo@gaignon.com</a>
   </section>
-
 </main>
-
-<footer>
-  © RGO — Richard Gaignon
-</footer>
-
+<footer>© RGO — Richard Gaignon</footer>
 </body>
 </html>
